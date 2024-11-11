@@ -1,11 +1,12 @@
 import { Router } from "express";
-import { getAllUsers, registerUser, loginUser, getUserDetails } from "../controllers/user.controllers.js";
+import {registerUser, loginUser, logoutUser, getUserDetails } from "../controllers/user.controllers.js";
+import { isAuthenticated } from "../middlewares/user.auth.js";
 
 const router = Router();
 
-router.get("/all", getAllUsers);
 router.post("/register", registerUser);
 router.post("/login", loginUser);
-router.get("/userId/:id", getUserDetails);
+router.get("/logout", logoutUser);
+router.get("/userDetails", isAuthenticated, getUserDetails);
 
 export default router

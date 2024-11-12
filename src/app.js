@@ -12,9 +12,11 @@ app.use(express.urlencoded({ extended: true }));
 
 // import the routes
 import userRoutes from "./routes/user.routes.js";
+import taskRoutes from "./routes/task.routes.js";
 
 // use the routes
 app.use("/api/v1/users", userRoutes);
+app.use("/api/v1/tasks", taskRoutes);
 
 
 
